@@ -11,16 +11,3 @@ COPY . .
 
 CMD "yarn" "start:dev"
 
-
-FROM node:16.13 As production
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-COPY yarn.lock ./
-
-RUN yarn
-
-COPY . .
-
-RUN yarn build
